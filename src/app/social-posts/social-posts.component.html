@@ -1,0 +1,11 @@
+<button (click)="toggleForm()" >Show Form</button>
+<!-- when clicked dynamically show form -->
+<!-- add ngIf conditional to form to hide if -->
+<app-post-form (submitted)="onSubmit($event)" *ngIf="showForm" ></app-post-form>
+<!-- $event grabs emitted info from form -->
+<ol class="posts-container">
+   <app-post 
+   *ngFor="let post of myPosts; index as i" 
+   [postObject]="post" 
+   (deleted)="onDelete(i)" ></app-post>
+</ol>
